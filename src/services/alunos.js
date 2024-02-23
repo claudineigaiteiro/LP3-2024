@@ -7,6 +7,7 @@ const getAluno = async (params) => {
         aluno.notas = []
         aluno.notas.push(10)
         aluno.notas.push(9)
+        aluno.notas.push(9.5)
     } else {
         throw "Aluno não cadastrado!"
     }
