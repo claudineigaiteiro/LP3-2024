@@ -1,3 +1,5 @@
+const db = require('../configs/pg')
+
 const getAluno = async (params) => {
     let aluno = {}
     if (params.name === "Claudinei"){
@@ -17,4 +19,13 @@ const getAluno = async (params) => {
     return aluno
 }
 
+const sql =
+    `insert into alunos (id, nome, sobrenome, periodo, observacao)
+                    values ($1, $2, $3, $4, $5)`
+const postAlunos = async (params) => {
+    const { id, nome, sobrenome, periodo, observacao } = params
+    await db.query(sql, [id, nome, sobrenome, periodo, observacao])
+}
+
 module.exports.getAluno = getAluno
+module.exports.postAlunos = postAlunos
