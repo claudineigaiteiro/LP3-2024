@@ -5,7 +5,8 @@ const getAlunos = async (req, res, next) => {
         const retorno = await alunoService.getAluno()
         res.status(200).json(retorno)
     } catch (err) {
-        res.status(500).send(err)
+        console.log(err)
+        res.status(500).send(err.message)
     }
 }
 

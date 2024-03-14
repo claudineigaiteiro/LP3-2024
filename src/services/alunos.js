@@ -10,10 +10,8 @@ const sql_get =
 
 const getAluno = async (params) => {
     let aluno = {}
-    await db.query(sql_get)
-        .then(ret => aluno = { total: ret.rows.length, alunos: ret.rows })
-        .catch(err => aluno = err.stack)
-    return aluno
+    let ret = await db.query(sql_get);
+    return { total: ret.rows.length, alunos: ret.rows }
 }
 
 
